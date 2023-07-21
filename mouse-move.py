@@ -44,6 +44,8 @@ while True:
         break
     # Choose a random point for the cursor to move to
     point = random.choice(points)
+    # Add randomness to the points within a 50 pixel radius
+    point = (point[0] + random.randint(-50, 50), point[1] + random.randint(-50, 50))
     pyautogui.moveTo(point)
     pyautogui.click()
     # Sleep for 3 seconds
