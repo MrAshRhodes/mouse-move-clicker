@@ -1,6 +1,9 @@
-import pyautogui  # import the pyautogui module
-import time  # import the time module
+from pynput.mouse import Listener, Button
+import pyautogui
 
-while True:  # enter an infinite loop
-    time.sleep(1)  # pause the execution for 1 second
-    print(pyautogui.position())  # print the current position of the mouse cursor
+def on_click(x, y, button, pressed):
+    if button == Button.left and pressed:
+        print('You clicked at coordinates:', (x,y))
+
+with Listener(on_click=on_click) as listener:
+    listener.join()

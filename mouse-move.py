@@ -6,7 +6,7 @@ import random
 import pygame
 
 # Defining the cursor control points
-points = [(2299, 769), (2907, 780)]
+points = [(2957.9609375, 762.46484375), (2041.59375, 752.5703125)]
 # Boolean flag to cancel the script if needed
 cancel_script = False
 # Combination of keys to cancel the script
