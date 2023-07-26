@@ -3,10 +3,9 @@ from pynput.keyboard import Key, Listener
 import pyautogui
 import time
 import random
-import pygame
 
 # Defining the cursor control points
-points = [(2957.9609375, 762.46484375), (2041.59375, 752.5703125)]
+points = [(2994.80859375, 642.9765625), (1851.9609375, 708.765625)]
 # Boolean flag to cancel the script if needed
 cancel_script = False
 # Combination of keys to cancel the script
@@ -22,22 +21,15 @@ def on_press(key):
     except AttributeError:
         # Ignoring any attribute errors
         pass
-
-# Function to handle on key release events
-def on_release(key):
     # If escape key is pressed, end the listener
     if key == Key.esc:
         return False
 
 # Starting a Listener for keyboard events
-listener = Listener(on_press=on_press, on_release=on_release)
+listener = Listener(on_press=on_press)
 listener.start()
 
-# Initializing the pygame window
-pygame.init()
-win = pygame.display.set_mode((800, 600))
-
-# Main loop that runs until cancel_script is True or pygame window is closed
+# Main loop that runs until cancel_script is True
 while True:
     # If cancel_script is True, break the loop
     if cancel_script:
@@ -51,17 +43,5 @@ while True:
     # Sleep for 3 seconds
     time.sleep(3)
 
-    # Checking for pygame events
-    for event in pygame.event.get():
-        # If QUIT event found, set cancel_script to True
-        if event.type == pygame.QUIT:
-            cancel_script = True
-
-    # Update the pygame display
-    pygame.display.update()
-
 # Stop the keyboard listener
 listener.stop()
-
-# Quit the pygame window
-pygame.quit()
