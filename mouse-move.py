@@ -40,8 +40,8 @@ while True:
     point = (point[0] + random.randint(-50, 50), point[1] + random.randint(-50, 50))
     pyautogui.moveTo(point)
     pyautogui.click()
-    # Sleep for 3 seconds
-    time.sleep(3)
+    # Sleep for a random time between 3 and 7 seconds
+    time.sleep(random.uniform(3, 7))
 
 # Stop the keyboard listener
 listener.stop()
